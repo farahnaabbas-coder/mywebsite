@@ -1,0 +1,83 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling behavior */
+html {
+  scroll-behavior: auto;
+}
+
+/* Pin spacer fix for GSAP */
+.pin-spacer {
+  pointer-events: none !important;
+}
+
+.pin-spacer > * {
+  pointer-events: auto !important;
+}
+
+/* Section z-index stacking */
+.section-pinned {
+  z-index: 1;
+}
+
+.section-pinned:nth-child(1) { z-index: 10; }
+.section-pinned:nth-child(2) { z-index: 20; }
+.section-pinned:nth-child(3) { z-index: 30; }
+.section-pinned:nth-child(4) { z-index: 40; }
+
+/* Background image overlay */
+.bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 7, 10, 0.85) 0%,
+    rgba(7, 7, 10, 0.6) 50%,
+    rgba(7, 7, 10, 0.75) 100%
+  );
+}
+
+/* Card hover effects */
+.glass-card {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(0, 240, 255, 0.25);
+}
+
+/* Thumbnail hover */
+.thumbnail-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.thumbnail-hover:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 240, 255, 0.15);
+}
+
+/* Play button pulse */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 240, 255, 0);
+  }
+}
+
+.play-btn-pulse {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Navigation blur */
+.nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .hero-headline {
+    font-size: clamp(32px, 8vw, 48px) !important;
+  }
+}
